@@ -1,0 +1,17 @@
+<div style="height: 80vh ;display:flex; justify-content: center; align-items: center;">
+    <div>
+        <div class="w-25 m-auto">
+            <img class="w-100 h-100" src="../../assets/img/bg-img/verify email image.png" alt="message image">
+        </div>
+        <div class="text-center">
+            <h1>Email Confirmation</h1>
+            <p>Hi,Please Check Your Email to Enter OTP Code</p>
+            <div class="form-group w-50 m-auto">
+                <input required type="number" name="otpCode" id="otpCode" placeholder="Enter OTP Code" class="form-control">
+            </div>
+            <button type="submit" (click)="confirmEmail()" class="btn btn-primary mt-3 w-50">verify</button>
+            <br><p class="mt-3 text-danger" style="font-size: 20px;font-weight: 600;">if don't Recieve otp code</p>
+            <button type="submit" (click)="resendConfirmEmail()" class="btn btn-secondary mt-3 d-block m-auto w-50">Resend OTP Code</button>
+        </div>
+    </div>
+</div>

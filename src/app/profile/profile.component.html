@@ -1,0 +1,58 @@
+<app-header></app-header>
+<div class="main-content-wrapper d-flex clearfix">
+    <app-navbar></app-navbar>
+    <div class="cart-table-area section-padding-100">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="checkout_details_area mt-50 clearfix">
+                        <div class="cart-title">
+                            <h2>Admin Panel</h2>
+                        </div>
+
+                        <form [formGroup]="profileForm">
+                            <div class="row">
+                                <div class="col-md-9 mb-3">
+                                    <input type="text" class="form-control" formControlName="firstName" id="fName" value="" placeholder="Update First Name">
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <button class="btn btn-primary w-100 p-3 mb-15" (click)="updateProfile(profileForm)"> Update</button>
+                                </div>
+                                <div class="col-md-9 mb-3">
+                                    <input type="text" class="form-control" formControlName="lastName" id="lName" value="" placeholder="Update Last Name">
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <button class="btn btn-primary w-100 p-3 mb-15" (click)="updateProfile(profileForm)"> Update</button>
+                                </div>
+                                <div class="col-md-9 mb-3">
+                                    <input type="email" class="form-control" formControlName="email" id="email" value="" placeholder="Update Email">
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <button class="btn btn-primary w-100 p-3 mb-15" (click)="updateProfile(profileForm)"> Update</button>
+                                </div>
+                                <div class="col-md-9 mb-3">
+                                    <input type="number" class="form-control" formControlName="mobile" id="phone" value="" placeholder="Update mobile">
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <button class="btn btn-primary w-100 p-3 mb-15" (click)="updateProfile(profileForm)"> Update</button>
+                                </div>
+                                <div class="col-md-9 mb-3">
+                                    <input type="number" class="form-control" formControlName="age" id="age" value="" placeholder="Update Age">
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <button class="btn btn-primary w-100 p-3 mb-15"> Update</button>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- </div> -->
+<app-footer></app-footer>

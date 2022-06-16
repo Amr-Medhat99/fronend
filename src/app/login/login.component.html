@@ -1,0 +1,27 @@
+<div class="hero">
+  <div class="login">
+    <form [formGroup]="loginform" (ngSubmit)="login(loginform)">
+      <h1>Login</h1>
+
+      <div class="form_field">
+        <input formControlName="email" type="email" required placeholder="email" />
+
+        <label for="">Email</label>
+      </div>
+
+      <div class="form_field">
+        <input formControlName="password" type="password" required placeholder="password" />
+        <label for="">Password</label>
+      </div>
+
+      <!-- <div class="form_field">
+        <input formControlName="type" type="text" required placeholder="type" />
+        <label for="">Type</label>
+      </div> -->
+
+      <input [disabled]="loginform.invalid" type="submit" value="Login" />
+      <div class="change">don't have an account? <a routerLink="/signup">sign up</a></div>
+    </form>
+  </div>
+</div>
+

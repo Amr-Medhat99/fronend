@@ -1,0 +1,46 @@
+<div class="mobile-nav">
+    <!-- Navbar Brand -->
+    <div class="amado-navbar-brand">
+        <a routerLink="/home"><img src="../../assets/imgs/core-img/logo.png" alt=""></a>
+    </div>
+    <!-- Navbar Toggler -->
+    <div class="amado-navbar-toggler">
+        <span></span><span></span><span></span>
+    </div>
+</div>
+
+<!-- Header Area Start -->
+<header class="header-area clearfix">
+    <!-- Close Icon -->
+    <div class="nav-close">
+        <i class="fa fa-close" aria-hidden="true"></i>
+    </div>
+    <!-- Logo -->
+    <div class="logo">
+        <a routerLink="/home"><img src="../../assets/img/core-img/logo.png" alt=""></a>
+    </div>
+    <!-- Amado Nav -->
+    <nav class="amado-nav">
+        <ul>
+            <!-- <li class="active"><a href="./Profile.html">Profile</a></li> -->
+            <li><a routerLink="/adminManageProduct">Products</a></li>
+            <li><a routerLink="/adminCategory">Categories</a></li>
+            <li><a routerLink="/adminBrand">Brands</a></li>
+            <!-- <li><a routerLink="/adminManageProduct">Customers</a></li>
+            <li><a href="./Orders.html">Orders</a></li>
+            <li><a href="./offers.html">Offers</a></li>
+            <li><a href="./Statistics.html">Statistics</a></li> -->
+        </ul>
+    </nav>
+    <!-- Button Group -->
+    <div class="amado-btn-group mb-100">
+        <button class="btn amado-btn mb-15" (click)="logout()">Logout</button>
+    </div>
+    <!-- Social Button -->
+    <div class="social-info d-flex justify-content-between">
+        <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    </div>
+</header>

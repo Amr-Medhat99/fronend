@@ -1,0 +1,64 @@
+<!-- <form [formGroup]="registerForm" (ngSubmit)="registerFormData(registerForm)" class="w-75 m-auto py-5">
+    <div class="form-group">
+        <label>First Name</label>
+        <input type="text" formControlName="firstName" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" formControlName="lastName" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" formControlName="email" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>password</label>
+        <input type="password" formControlName="password" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Type</label>
+        <input type="text" formControlName="type" class="form-control">
+    </div>
+
+    <a style="display: block; text-decoration: none;" routerLink="/login">Login?</a>
+    <button [disabled]="registerForm.invalid==true" type="submit" class="btn btn-primary">Register</button>
+
+</form> -->
+<div class="hero">
+  <div class="login">
+    <form [formGroup]="registerForm" (ngSubmit)="registerFormData(registerForm)">
+      <h1>Sign Up</h1>
+
+      <div class="form_field">
+        <input type="text" placeholder="First Name" formControlName="firstName"/>
+
+        <label for="">First Name</label>
+      </div>
+
+      <div class="form_field">
+        <input type="text" placeholder="Last Name" formControlName="lastName"/>
+
+        <label for="">Last Name</label>
+      </div>
+
+      <div class="form_field">
+        <input type="email" required placeholder="email" formControlName="email"/>
+
+        <label for="">Email</label>
+      </div>
+
+      <div class="form_field">
+        <input type="password" required placeholder="password" formControlName="password" />
+        <label for="">Password</label>
+      </div>
+
+      <input type="submit" [disabled]="registerForm.invalid==true" value="Sign up" />
+
+      <div class="change">Already have an account?<a routerLink="/login"> Login</a></div>
+    </form>
+  </div>
+</div>

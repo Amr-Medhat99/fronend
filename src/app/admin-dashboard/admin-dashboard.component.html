@@ -1,0 +1,202 @@
+<div class="main-content-wrapper d-flex clearfix">
+    <app-admin-navbar></app-admin-navbar>
+    <div class="cart-table-area section-padding-100">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="checkout_details_area mt-50 clearfix">
+
+                        <div class="cart-title">
+                            <h2>Manage Categories</h2>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-9 mb-3"></div>
+                            
+                            
+                            <form class="container" [formGroup]="productForm">
+                                <h1 class="text-center text-primary pt-5">Add New Product</h1>
+                            
+                                <div class="form-group mt-4">
+                                    <input id="title" class="form-control" formControlName="title" type="text" name="pro-name" maxlength="20" placeholder="Product Title"> 
+                                </div>
+                            
+                                <div class="form-group">
+                                    <input id="category" class="form-control" formControlName="category" type="text" name="pro-category" maxlength="18" placeholder="Product Category"> 
+                                </div>
+                            
+                                <div class="form-group">
+                                    <input id="price" class="form-control" formControlName="price" type="number" name="pro-prise" maxlength="5" placeholder="Product Price">
+                                </div>
+                            
+                                <div class="form-group">
+                                    <input id="description" class="form-control" formControlName="description" type="text" name="pro-description" placeholder="Product Description">
+                                </div>
+                            
+                                <div class="form-group">
+                                    <input id="brand" class="form-control" formControlName="brand" type="text" name="pro-brand" placeholder="Product brand">
+                                </div>
+                                
+                                <div class="form-group">
+                            
+                                    <input id="imageFile" class="form-control" type="file"  [attr.attach]="upload" (change)="onChange($event)"/>
+                            
+                                    <!--Flag variable is used here-->
+                                    <div class="container text-center my-1" *ngIf="loading">
+                                        <h3>Loading ...</h3>
+                                    </div>
+                                    <div class="container text-center my-1" *ngIf="done">
+                                        <h3 class="text-success">Uploaded Successfully</h3>
+                                    </div>
+                                </div>
+                            
+                                <button id="foradd" class="btn btn-primary w-25 p-3" *ngIf="addButton" (click)="addProduct(productForm)">Add Product</button>
+                                <button id="forupdate" class="btn btn-warning w-25 p-3" (click)="updateProduct(productForm)" *ngIf="updateButton">Update Product</button>
+                            
+                                <div class="form-group my-5">
+                                    <form class="d-flex col-md-9 mb-3" role="search">
+                                        <input (keyup)="search($event)" class="form-control me-2" type="text" placeholder="Search" aria-label="Search">  
+                                    </form>
+                                </div>
+                                
+                                
+                            </form>        
+                        </div>
+
+
+                        <div class="col-md-9 mb-3">
+                            <h1 class="text-center text-primary">Our Product</h1>
+                        </div>
+                        <!-- Cards Area Start -->
+                        <div class="row" *ngIf="normal">
+                            <div  class="col-lg-4 col-md-5 col-sm-6 mb-3"  *ngFor="let i of allProduct">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <img src="{{i.image[0]}}" class="w-100">
+                                        <h1>{{i.title}}<span class="d1 p-1">{{i.category}}</span></h1>
+                                        <p>{{i.description}}</p>
+                                        <span class="bg-primary p-2 po text-white">{{i.price}}</span>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="btn-toolbar" role="toolbar">
+                                            <button type="button" (click)="fillForm(i)" class="btn btn-sm amado-btn-sm ">Update Product</button>
+                                            <button type="button" (click)="deleteProduct(i._id)" class="btn btn-sm amado-btn-sm ">Delete Product</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>  
+                        <div class="row" *ngIf="find">
+                            <div  class="col-lg-4 col-md-5 col-sm-6 mb-3"  *ngFor="let i of productFind">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <img src="{{i.image[0]}}" class="w-100">
+                                        <h1>{{i.title}}<span class="d1 p-1">{{i.category}}</span></h1>
+                                        <p>{{i.description}}</p>
+                                        <span class="bg-primary p-2 po text-white">{{i.price}}</span>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="btn-toolbar" role="toolbar">
+                                            <button type="button" (click)="fillForm(i)" class="btn btn-sm amado-btn-sm ">Update Product</button>
+                                            <button type="button" (click)="deleteProduct(i._id)" class="btn btn-sm amado-btn-sm ">Delete Product</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        
+                        <!-- <div class="row pt-4" id="data">
+                            <div *ngFor="let i of allProduct" class="col-md-4 my-3">
+                                <img src="{{i.image[0]}}" class="w-100">
+                                <h1>{{i.title}}<span class="d1 p-1">{{i.category}}</span></h1>
+                                <p>{{i.description}}</p>
+                                <span class="bg-primary p-2 po text-white">{{i.price}}</span>
+                                <button class="btn btn-outline-danger p-3" (click)="deleteProduct(i._id)">Delete Product</button>
+                                <button class="btn btn-outline-warning p-3" (click)="fillForm(i)">Update Product</button>
+                            </div>
+                        </div> -->
+    
+                        <!-- ##### Main Content Wrapper End ##### -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-admin-footer></app-admin-footer>
+
+
+
+
+
+
+<!-- 
+<form class="container" [formGroup]="productForm">
+    <h1 class="text-center text-primary pt-5">Add New Product</h1>
+
+    <div class="form-group mt-4">
+        <input id="title" class="form-control" formControlName="title" type="text" name="pro-name" maxlength="20" placeholder="Product Title"> 
+    </div>
+
+    <div class="form-group">
+        <input id="category" class="form-control" formControlName="category" type="text" name="pro-category" maxlength="18" placeholder="Product Category"> 
+    </div>
+
+    <div class="form-group">
+        <input id="price" class="form-control" formControlName="price" type="number" name="pro-prise" maxlength="5" placeholder="Product Price">
+    </div>
+
+    <div class="form-group">
+        <input id="description" class="form-control" formControlName="description" type="text" name="pro-description" placeholder="Product Description">
+    </div>
+
+    <div class="form-group">
+        <input id="brand" class="form-control" formControlName="brand" type="text" name="pro-brand" placeholder="Product brand">
+    </div>
+    
+    <div class="form-group">
+
+        <input id="imageFile" class="form-control" type="file"  [attr.attach]="upload" (change)="onChange($event)"/>
+
+        -Flag variable is used here-->
+        <!-- <div class="container text-center my-1" *ngIf="loading">
+            <h3>Loading ...</h3>
+        </div>
+        <div class="container text-center my-1" *ngIf="done">
+            <h3 class="text-success">Uploaded Successfully</h3>
+        </div>
+    </div>
+
+    <button id="foradd" class="btn btn-primary w-25 p-3" *ngIf="addButton" (click)="addProduct(productForm)">Add Product</button>
+    <button id="forupdate" class="btn btn-warning w-25 p-3" (click)="updateProduct(productForm)" *ngIf="updateButton">Update Product</button>
+
+    <div class="form-group my-5">
+        <input (keyup)="search($event)" id="search" class="form-control w-75 m-auto p-2" name="txtsearch" placeholder="Search Here By Name">
+    </div>
+    
+</form>     
+
+<div class="container">
+    <h1 class="text-center text-primary">Our Product</h1>
+    <div class="row pt-4" id="data">
+        <div *ngFor="let i of allProduct" class="col-md-4 my-3">
+            <img src="{{i.image[0]}}" class="w-100">
+            <h1>{{i.title}}<span class="d1 p-1">{{i.category}}</span></h1>
+            <p>{{i.description}}</p>
+            <span class="bg-primary p-2 po text-white">{{i.price}}</span>
+            <button class="btn btn-outline-danger p-3" (click)="deleteProduct(i._id)">Delete Product</button>
+            <button class="btn btn-outline-warning p-3" (click)="fillForm(i)">Update Product</button>
+        </div>
+    </div>
+</div> --> 
+
+
+
+
+
+
+
+
+

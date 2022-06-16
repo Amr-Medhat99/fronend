@@ -1,0 +1,27 @@
+<app-header></app-header>
+<div class="main-content-wrapper d-flex clearfix">
+  <app-navbar></app-navbar>
+  <!-- Product Catagories Area Start -->
+  <div class="products-catagories-area clearfix">
+    <div class="text-center w-100" *ngIf="loader">
+      <app-loader></app-loader>
+    </div>
+    <div class="amado-pro-catagory clearfix" *ngIf="!loader">
+        <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+        <!-- Single Catagory -->
+        <div class="single-products-catagory clearfix" *ngFor="let product of allProducts">
+          <a routerLink="/product/{{product.id}}"  *ngIf="searchText === '' || product.title.toLowerCase().includes(searchText)">
+            <img src="{{product.image}}" alt="{{product.title}}" />
+            <!-- Hover Content -->
+            <div class="hover-content">
+              <h4>{{product.title}}</h4>
+              <div class="line"></div>
+              <p>From $${{product.price}}</p>
+            </div>
+          </a>
+        </div>
+    </div>
+  </div>
+</div>
+    <!-- Product Catagories Area End -->
+<app-footer></app-footer>

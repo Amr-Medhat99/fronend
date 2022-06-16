@@ -1,0 +1,72 @@
+<div class="main-content-wrapper d-flex clearfix">
+    <app-admin-navbar></app-admin-navbar>
+    <div class="cart-table-area section-padding-100">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="checkout_details_area mt-50 clearfix">
+
+                        <div class="cart-title">
+                            <h2>Manage Brands</h2>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-9 mb-3"></div>
+                            <form class="d-flex col-md-9 mb-3" role="search">
+                                <input (keyup)="search($event)" class="form-control me-2" type="text" placeholder="Search" aria-label="Search">  
+                            </form>
+                            
+                            <form class="container" [formGroup]="BrandForm">
+                              <h1 class="text-center text-primary pt-5">Add New Brand</h1>
+                            
+                              <div class="form-group mt-4">
+                                  <input id="title" class="form-control" formControlName="title" type="text" name="pro-name" maxlength="20" placeholder="Brand Title"> 
+                              </div>
+                              <button id="foradd" class="btn btn-primary w-25 p-3" *ngIf="addButton" (click)="addBrand(BrandForm)">Add Brand</button>
+                              <button id="forupdate" class="btn btn-warning w-25 p-3" (click)="updateBrand(BrandForm)" *ngIf="updateButton">Update Brand</button>
+                            </form> 
+                            
+                        </div>
+
+                        <div class="col-md-9 mb-3">
+                            <p class="mb-3">Results</p>
+                        </div>
+                        <!-- Cards Area Start -->
+                        <div class="row" *ngIf="normal">
+                            <div  class="col-lg-4 col-md-5 col-sm-6 mb-3"  *ngFor="let i of allBrands">
+                                <div class="card h-100">
+                                  <div class="card-body">
+                                    <h5 class="card-title">{{i.title}}</h5>
+                                  </div>
+                                  <div class="card-footer">
+                                      <div class="btn-toolbar" role="toolbar">
+                                        <button type="button" (click)="fillForm(i)" class="btn btn-sm amado-btn-sm ">Edit Info</button>
+                                        <button type="button" (click)="deleteBrand(i._id)" class="btn btn-sm amado-btn-sm ">Remove</button>
+                                      </div>
+                                  </div>
+                                </div>
+                            </div> 
+                        </div>  
+                        <div class="row" *ngIf="find">
+                          <div  class="col-lg-4 col-md-5 col-sm-6 mb-3"  *ngFor="let i of brandFind">
+                              <div class="card h-100">
+                                <div class="card-body">
+                                  <h5 class="card-title">{{i.title}}</h5>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="btn-toolbar" role="toolbar">
+                                      <button type="button" (click)="fillForm(i)" class="btn btn-sm amado-btn-sm ">Edit Info</button>
+                                      <button type="button" (click)="deleteBrand(i._id)" class="btn btn-sm amado-btn-sm ">Remove</button>
+                                    </div>
+                                </div>
+                              </div>
+                            </div> 
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+<!-- </div> -->
+<app-admin-footer></app-admin-footer>
